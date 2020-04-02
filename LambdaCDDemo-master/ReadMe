@@ -1,0 +1,38 @@
+Serverless application 
+    1
+Create Service Role 
+S3,CodePipeline,Lambda,API Gateway,CloudFormation
+
+    2
+Application Setup
+Sam Template - samTemplate.yaml
+CodeBuild Spec - Buildspec.yml
+
+    3
+Create Pipeline
+Source,Build
+you can create change set,Approve change set,Execute change set
+
+First You need to create service role for CloudFormation in IAM 
+and also we need to add service polocy 'those are mentioned in CFnServiceRole.json file' in git hub.
+In that CFnServiceRole.json file we're giving permissions to S3 , Lambda,Api Gateway,IAM,CloudFormation and CodeDeploy.
+
+Make sure that you need to provide AWS account ID and Region 
+
+I'm using simple phython based example which will give the availability zones to you
+
+I've sam template.yaml file this will defines the serverless application 
+defining lambda function 
+
+Buildspec.yaml file we're going to convert sam template into cloudformation template 
+make sure that s3 bucket is created before the lambda execution.
+
+
+after that create pipeline and give the source provider 'git hub' choose your repository from list.
+you can select build provider AWS CodeBuild provide needed info to fields.
+By deafult this service role will not have s3 write permissions,so we need add those.
+choose deployment provider would be cloudformation.
+
+In that code pipeline it self can approve the code.
+after that can take action deploy.
+go to Api Gateway access that URL can able to get availability zones 
