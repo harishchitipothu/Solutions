@@ -1,3 +1,11 @@
+In my previous organization i never tried these type of request.
+I use to get request build a EC2 instance and load balancer and RDS instance something like that.
+I never use the service called EQS and AWS GraphSql API.
+SNS service we used to when RDS instance goes beyond 80% will get notification by using SNS handlers,But i never used ing cloudformation template 
+created by using console.
+I used Lambda function in order to get the AMI backup's for the VM ,one lambda function will take backup and
+another lambda function will check if backup of those AMI is more than 10 days clean it.
+
 Serverless application 
     1
 Create Service Role 
